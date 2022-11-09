@@ -1,4 +1,4 @@
-*.sfml-app
+sfml-app
 # Prerequisites
 *.d
 
