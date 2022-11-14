@@ -42,6 +42,7 @@ bool MyTiles:: load(const std::string &tileset, sf::Vector2u tileSize, const int
             return true;
     }
 
+
      void  MyTiles:: draw(sf::RenderTarget &target, sf::RenderStates states) const
     {
         // apply the entiy's transform combine with the one that passed by the caller
@@ -51,3 +52,5 @@ bool MyTiles:: load(const std::string &tileset, sf::Vector2u tileSize, const int
 
         target.draw(m_vertices, states);
     }
+
+    

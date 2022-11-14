@@ -2,6 +2,9 @@
 #define GAME_H
 
 #include <SFML/Graphics.hpp>
+#include<ctime>
+#include<unistd.h>
+
 
 class MyTiles : public sf::Drawable, public sf::Transformable
 {
@@ -16,5 +19,6 @@ private:
     sf::Texture m_tileset;
   
 };
+
 
 #endif
