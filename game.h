@@ -20,5 +20,13 @@ private:
   
 };
 
+class Dialogue : public sf::Drawable, public sf::Transformable
+{   
+    public:
+        void reset();
+        
+
+};
+
 
 #endif
