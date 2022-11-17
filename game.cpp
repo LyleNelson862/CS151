@@ -53,4 +53,22 @@ bool MyTiles:: load(const std::string &tileset, sf::Vector2u tileSize, const int
         target.draw(m_vertices, states);
     }
 
+
+    int MyTiles::findTile(int xPosition, int yPosition, int tileLength,int tileWidth)
+    {
+        int X = (xPosition)/tileLength;
+        int Y = yPosition/tileWidth;
+       // std::cout<<xPosition<<std::endl;
+       //  std::cout<<yPosition<<std::endl;
+
+
+        Y = Y *16;
+        int yourTile = (X + Y);
+      //  std::cout<<X<<std::endl;
+        //std::cout<<Y<<std::endl;
+        return yourTile;
+    }
+
+
+
     
