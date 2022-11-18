@@ -10,17 +10,18 @@ Dialogue::Dialogue(std::string fontType,std::string message,int xPos, int yPos)
         std::cout<<"Error loading font";
         exit(2);
     }
+    mFont = font;
+
     mTest = message;
     mText.setFont(mFont);
-    mText.setCharacterSize(20);
+    mText.setCharacterSize(10);
     mText.setString(message);
-    mText.setFillColor(mTextNormal);
-    mText.setPosition(xPos,yPos);
-    
+    mText.setFillColor(sf::Color::White);
+    mText.setPosition(xPos,yPos);    
 }
 
 
 void Dialogue::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    target.draw(m_text, states);
+    target.draw(mText, states);
 }

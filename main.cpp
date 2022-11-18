@@ -3,6 +3,7 @@
 
 int main()
 {
+     
 
     // Placing a comment in here to check for pushing
 
@@ -41,14 +42,11 @@ int main()
 
 
     int trap = 0;
+    
 
     Dialogue pit("OpenSans-Regular.ttf","You have fallen in a pit press Space to escape",0,0);
 
-    std::cout<<pit.mTest;
-
-
-   
-    
+    Dialogue Orc("OpenSans-Regular.ttf", "Suddenly, an orc holding a musket walks torward you, press A to dodge",0,10);
 
         const int level[] =
         {
@@ -89,7 +87,6 @@ int main()
     // run the main loop
     while (window.isOpen())
     {
-
         // Updating dt
 
         dt = dtClock.restart().asSeconds();
@@ -163,8 +160,7 @@ int main()
 
 
 
-    //Make this into a function that allows you to enter an area 
-    
+    // Need to figure out how to make this into a function.    
     if(trap ==0 )
     {
         if(place == 70)
@@ -172,7 +168,32 @@ int main()
              int cease =0;
              window.draw(Stop);
              window.draw(Joe);
-             //window.draw(pit); 
+             window.draw(pit); 
+             window.display();
+
+            do{
+             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space))
+                 {
+                    cease =1;
+                    jim.setPosition(xJim,yJim);
+                    trap++;
+                 }   
+            
+            }while(cease == 0);                    
+    
+        }
+    
+
+    }
+
+     if(trap ==0 )
+    {
+        if(place == 70)
+        {
+             int cease =0;
+             window.draw(Stop);
+             window.draw(Joe);
+             window.draw(pit); 
              window.display();
 
             do{
