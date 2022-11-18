@@ -42,11 +42,22 @@ int main()
 
 
     int trap = 0;
+
+    int trap2 = 0;
+
+    std::string message = "You notice a strange tile on the ground, and touch it with a 5 foot pole,"
+    " \n you then fall into a pit press Space to escape ";
+
+
+
     
 
-    Dialogue pit("OpenSans-Regular.ttf","You have fallen in a pit press Space to escape",0,0);
+    Dialogue pit("OpenSans-Regular.ttf",message,0,0);
 
-    Dialogue Orc("OpenSans-Regular.ttf", "Suddenly, an orc holding a musket walks torward you, press A to dodge",0,10);
+    message = "An Orc with armed musket approaches you, and wants to speak with you "
+        "\n Press T to speak the orc";
+
+    Dialogue Orc("OpenSans-Regular.ttf", message,0,10);
 
         const int level[] =
         {
@@ -186,25 +197,24 @@ int main()
 
     }
 
-     if(trap ==0 )
+     if(trap2 == 0 )
     {
-        if(place == 70)
+        if(place == 45)
         {
-             int cease =0;
+             int cease2 =0;
              window.draw(Stop);
-             window.draw(Joe);
-             window.draw(pit); 
+             window.draw(Orc); 
              window.display();
 
             do{
-             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space))
+             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::T))
                  {
-                    cease =1;
+                    cease2 =1;
                     jim.setPosition(xJim,yJim);
-                    trap++;
+                    trap2++;
                  }   
             
-            }while(cease == 0);                    
+            }while(cease2 == 0);                    
     
         }
     
@@ -226,9 +236,3 @@ int main()
     return 0;
 }
 
-// What I want
-
-// Save the location of the circle
-// Clear the Screen to black
-//  Draw something new on this screen until
-// Redraw the game a
