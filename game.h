@@ -24,7 +24,7 @@ public:
     bool load(const std::string &tileset, sf::Vector2u tileSize, const int *tiles, unsigned int width, unsigned int height);
     int findTile(int xPosition, int yPosition, int tileLength,int tileWidth);
 
-    //void GetTile
+        //void GetTile
     // Need to accept the array and x position of the shape 
     
 

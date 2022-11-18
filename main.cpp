@@ -1,4 +1,5 @@
 #include "game.h"
+#include "dialogue.h"
 
 int main()
 {
@@ -34,6 +35,23 @@ int main()
     Stop.setPosition(0,0);
 
     
+    sf::CircleShape Joe(40);
+    Joe.setFillColor(sf::Color::Blue);
+    Joe.setPosition(100,100);
+
+
+    int trap = 0;
+
+    Dialogue pit;
+
+    pit.loadText("OpenSans-Regular.ttf","You have fallen in a pit press Space to escape",0,0);
+
+    
+
+   
+
+
+    
 
         const int level[] =
         {
@@ -59,6 +77,18 @@ int main()
     if (!map.load("rpg_textures.png", sf::Vector2u(gridLength, gridWidth), level, 16, 8))
         return -1;
 
+        jim.setPosition(xJim, yJim);
+
+
+
+
+
+
+
+
+
+
+
     // run the main loop
     while (window.isOpen())
     {
@@ -79,7 +109,6 @@ int main()
         window.clear();
         window.draw(map);
 
-        jim.setPosition(xJim, yJim);
         window.draw(jim);
         window.display();
 
@@ -131,30 +160,47 @@ int main()
         
         int place = map.findTile(xJim, yJim, gridLength, gridWidth);
 
-/*
-        if(place == 7)
-        {
-            int cease =0;
-              window.draw(Stop);
-            window.display();
+            jim.setPosition(xJim, yJim);
 
-             do{
-                if (event.type == sf::Event::KeyPressed)
+
+
+
+
+    //Make this into a function that allows you to enter an area 
+    
+    if(trap ==0 )
+    {
+        if(place == 70)
+        {
+             int cease =0;
+             window.draw(Stop);
+             window.draw(Joe);
+             //window.draw(pit); 
+             window.display();
+
+            do{
+             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space))
                  {
-                    if (event.key.code == sf::Keyboard::Left)
-                     {
-                         cease = 1;
-                         xJim=xJim -gridLength;
-                        window.clear();
-                
-                    }
+                    cease =1;
+                    jim.setPosition(xJim,yJim);
+                    trap++;
                  }   
             
-            }while(cease == 0);
+            }while(cease == 0);                    
+    
         }
-*/
+    
 
     }
+
+
+    // End of While Loop 
+    }
+
+
+
+
+
     int place = map.findTile(xJim, yJim, gridLength, gridWidth);
     std::cout << "You just took " << stepcount << " steps\n";
     std::cout << "You ended on tile number " << place;
