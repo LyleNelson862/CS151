@@ -2,21 +2,25 @@
 #define DIALOGUE_H
 
 #include <SFML/Graphics.hpp>
-#include<ctime>
-#include<unistd.h>
-#include<iostream>
+#include <ctime>
+#include <unistd.h>
+#include <iostream>
 #include <string>
 
-class Dialogue //: public sf::Drawable, public sf::Transformable 
+class Dialogue //: public sf::Drawable, public sf::Transformable
 {
-    public:
-        void loadText(std::string fontType,std::string Message,int xPos,int yPos);
+public:
+    Dialogue(std::string font, std::string message,int xPos, int yPos);
 
-    private:
-        virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-        sf::Text m_text;
+        std::string mTest;
 
+    virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
+
+private:
+    sf::Text m_text;
+    sf::Text mText;
+    sf::Font mFont;
+    sf::Color mTextNormal;
 };
-
 
 #endif

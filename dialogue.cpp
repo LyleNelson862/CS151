@@ -1,33 +1,24 @@
 #include "dialogue.h"
 
 
-
- void Dialogue :: loadText(std::string fontType,std::string Message,int xPos,int yPos)
-
+Dialogue::Dialogue(std::string fontType,std::string message,int xPos, int yPos)
 {
-  
     sf::Font font;
 
-    if (!font.loadFromFile(fontType))
+     if (!font.loadFromFile(fontType))
     {
         std::cout<<"Error loading font";
+        exit(2);
     }
-    sf::Text text;
-
-    text.setFont(font);
-
-    text.setString(Message);
-
-    text.setCharacterSize(10);
-
-    text.setFillColor(sf::Color::White);
-
-    text.setPosition(xPos,yPos);
+    mTest = message;
+    mText.setFont(mFont);
+    mText.setCharacterSize(20);
+    mText.setString(message);
+    mText.setFillColor(mTextNormal);
+    mText.setPosition(xPos,yPos);
     
-
-
-
 }
+
 
 void Dialogue::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {

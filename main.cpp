@@ -42,15 +42,12 @@ int main()
 
     int trap = 0;
 
-    Dialogue pit;
+    Dialogue pit("OpenSans-Regular.ttf","You have fallen in a pit press Space to escape",0,0);
 
-    pit.loadText("OpenSans-Regular.ttf","You have fallen in a pit press Space to escape",0,0);
+    std::cout<<pit.mTest;
 
-    
 
    
-
-
     
 
         const int level[] =
