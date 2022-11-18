@@ -31,10 +31,7 @@ int main()
     view.setSize(512, 256);
     view.setCenter(window.getSize().x / 2.f, window.getSize().y / 2.f);
 
-    sf::RectangleShape Stop(sf::Vector2f(512,256));
-    Stop.setFillColor(sf::Color::Black);
-    Stop.setPosition(0,0);
-
+   
     
     sf::CircleShape Joe(40);
     Joe.setFillColor(sf::Color::Blue);
@@ -170,14 +167,17 @@ int main()
 
 
 
+         pit.Stop(pit,place,70,xJim,yJim,window,jim,0);
 
-    // Need to figure out how to make this into a function.    
+
+//Moving this to the function
+    /*
     if(trap ==0 )
     {
         if(place == 70)
         {
              int cease =0;
-             window.draw(Stop);
+             //window.draw(Stop);
              window.draw(Joe);
              window.draw(pit); 
              window.display();
@@ -196,20 +196,24 @@ int main()
     
 
     }
+//Needs to accept a integer to see if function has already ran. 
 
+/*
      if(trap2 == 0 )
     {
+        // needs to accept a spot
         if(place == 45)
         {
+            //variable
              int cease2 =0;
-             window.draw(Stop);
-             window.draw(Orc); 
+             window.draw(Stop); // Hmm could try incorperate shape in a dialogue class
+             window.draw(Orc); //Accepts dialogue would need to pass an object to itself
              window.display();
 
             do{
-             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::T))
+             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::T)) // Need to pass a key as a function.
                  {
-                    cease2 =1;
+                    cease2 =1; //
                     jim.setPosition(xJim,yJim);
                     trap2++;
                  }   
@@ -218,9 +222,8 @@ int main()
     
         }
     
-
     }
-
+*/
 
     // End of While Loop 
     }
