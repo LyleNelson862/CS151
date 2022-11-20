@@ -6,15 +6,29 @@ int main()
     sf::RenderWindow window(sf::VideoMode(512, 256), "Tilemap");
 
     // Creating a shape that can be used
+    // sf::CircleShape jim(16);
+    // jim.setFillColor(sf::Color::Red);
 
-    sf::CircleShape jim(16);
-    jim.setFillColor(sf::Color::Red);
+    // sf::RenderWindow character(sf::VideoMode(800, 800), "SFML works!");
+    sf::Texture textureTile;
+    textureTile.loadFromFile("IndianaJonesCanva.png");
+    sf::Sprite jones;
+    jones.setTexture(textureTile);
+    jones.setScale (0.1, 0.1);
+    while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+        window.clear();
+        window.draw(jones);
+        window.display();
 
-    // sf::sprite jim(texture);
-    // window.draw(sprite);
-
-    int xJim = 0;
-    int yJim = 0;
+    int xJones = 0;
+    int yJones = 0;
 
     // define the level with an array of tile indices
     
@@ -49,31 +63,32 @@ int main()
         // draw the map
         window.clear();
         window.draw(map);
-        jim.setPosition(xJim, yJim);
-        window.draw(jim);
+        jones.setPosition(xJones, yJones);
+        window.draw(jones);
         window.display();
 
         if (event.type == sf::Event::KeyPressed)
         {
             if (event.key.code == sf::Keyboard::Right)
             {
-                xJim++;
+                xJones++;
             }
             else if (event.key.code == sf::Keyboard::Left)
             {
-                xJim--;
+                xJones--;
             }
              else if (event.key.code == sf::Keyboard::Down)
             {
-                yJim++;
+                yJones++;
             }
              else if (event.key.code == sf::Keyboard::Up)
             {
-                yJim--;
+                yJones--;
             }
 
         }
     }
 
     return 0;
+    }
 }
