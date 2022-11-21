@@ -2,7 +2,6 @@
 #define GAME_H
 
 #include <SFML/Graphics.hpp>
-// #include <Sprite.hpp>
 
 class MyTiles : public sf::Drawable, public sf::Transformable
 {
