@@ -15,7 +15,7 @@ public:
 
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
-    void Stop(const Dialogue &obj,int place,int tile,int xPos,int yPos,sf::RenderWindow &window,sf::CircleShape jim,int &trap);
+    void Stop(const Dialogue &obj,int place,int tile,int xPos,int yPos,sf::RenderWindow &window,sf::CircleShape &jim,int &trap);
 
 private:
     sf::RectangleShape mRect;

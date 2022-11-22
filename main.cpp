@@ -153,36 +153,8 @@ int main()
         jim.setPosition(xJim, yJim);
 
         pit.Stop(pit, place, random, xJim, yJim, window, jim, trap2);
-        //std::cout<<trap2;
-        // Function works right in main, but not in the function
-        /*
-             if(trap2 == 0 )
-            {
-                // needs to accept a spot
-                if(place == 45)
-                {
-                    //variable
-                     int cease2 =0;
-                     window.draw(Pause); // Hmm could try incorperate shape in a dialogue class
-                     window.draw(Orc); //Accepts dialogue would need to pass an object to itself
-                     window.display();
-
-                    do{
-                     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::T)) // Need to pass a key as a function.
-                         {
-                            cease2 =1; //
-                            jim.setPosition(xJim,yJim);
-                            trap2++;
-                         }
-
-                    }while(cease2 == 0);
-
-                }
-
-            }
-        */
-
-        // End of While Loop
+        
+        //End of while loops
     }
 
     int place = map.findTile(xJim, yJim, gridLength, gridWidth);
