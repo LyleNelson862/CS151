@@ -52,7 +52,6 @@ int main()
     Dialogue Orc("OpenSans-Regular.ttf", message, 0, 10);
 
     
-
     
             const int level[] =
             {
@@ -84,6 +83,7 @@ int main()
     Pause.setFillColor(sf::Color::Black);
     Pause.setPosition(0, 0);
 
+
     // run the main loop
     while (window.isOpen())
     {
@@ -93,6 +93,7 @@ int main()
 
         // handle events
         sf::Event event;
+
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
@@ -137,6 +138,9 @@ int main()
 
                         stepcount++;
                     }
+
+
+
                 }
             }
         }
@@ -146,13 +150,18 @@ int main()
         window.draw(map);
 
         window.draw(jim);
+
+
         window.display();
+
+
 
         int place = map.findTile(xJim, yJim, gridLength, gridWidth);
 
+        pit.Stop(pit, place, 70, xJim, yJim, window, jim, trap2,event);
         jim.setPosition(xJim, yJim);
 
-        pit.Stop(pit, place, random, xJim, yJim, window, jim, trap2);
+
         
         //End of while loops
     }
@@ -163,3 +172,4 @@ int main()
 
     return 0;
 }
+

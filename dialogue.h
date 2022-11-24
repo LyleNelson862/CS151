@@ -7,6 +7,7 @@
 #include <iostream>
 #include <string>
 #include<cstdlib>
+#include "button.h"
 
 class Dialogue : public sf::Drawable //, public sf::Transformable
 {
@@ -15,7 +16,7 @@ public:
 
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
-    void Stop(const Dialogue &obj,int place,int tile,int xPos,int yPos,sf::RenderWindow &window,sf::CircleShape &jim,int &trap);
+    void Stop(const Dialogue &obj,int place,int tile,int xPos,int yPos,sf::RenderWindow &window,sf::CircleShape &jim,int &trap,sf::Event &event);
 
 private:
     sf::RectangleShape mRect;
