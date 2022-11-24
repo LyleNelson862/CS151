@@ -42,13 +42,15 @@ void Dialogue::Stop(const Dialogue &obj, int place, int tile, int xPos, int yPos
             Button Option("testing", {100, 100}, {50, 20}, sf::Color::Red);
             window.draw(Option);
             window.display();
-            Option.update(event, window);
 
             while (cease == 0)
             {
                 while (window.pollEvent(event))
                 {
                     Option.update(event, window);
+                    window.draw(Option);
+                    window.display();
+                    usleep(1000);
                     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)) // Need to pass a key as a function.
                     {
                         trap = -1;
@@ -56,7 +58,6 @@ void Dialogue::Stop(const Dialogue &obj, int place, int tile, int xPos, int yPos
                         jim.setPosition(xPos, yPos);
                         jim.setFillColor(sf::Color::Blue);
                         cease = 1;
-                        std::cout << "Can this be confirmed";
                     }
                 }
             }

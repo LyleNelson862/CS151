@@ -78,7 +78,7 @@ Button::Button(std::string s, sf::Vector2f position, sf::Vector2f size, sf::Colo
     mBtnState = normal;
 
     mTextNormal = sf::Color(0, 250, 0); // sf::Color::Green;
-    mTextHover = sf::Color::Red;
+    mTextHover = sf::Color::Blue;
     // Make lable
     if (!mFont.loadFromFile("college.ttf"))
     {
@@ -111,6 +111,8 @@ void Button::update(sf::Event &e, sf::RenderWindow &window)
     {
         if (mouseInButton)
         {
+            std::cout<<"Mouse on button.";
+
             mText.setFillColor(mTextHover);
             mBtnState == state::hovered;
         }
@@ -128,6 +130,7 @@ void Button::update(sf::Event &e, sf::RenderWindow &window)
             {
                 mButton.setRotation(180);
                 mBtnState = state::clicked;
+                std::cout<<"Button clicked";
             }
             else
             {
