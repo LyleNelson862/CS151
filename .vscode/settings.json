@@ -5,6 +5,8 @@
         "ctime": "cpp",
         "cstdlib": "cpp",
         "iostream": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "fstream": "cpp",
+        "*.tcc": "cpp"
     }
 }

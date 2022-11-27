@@ -3,6 +3,8 @@
 #include "play.h"
 int main()
 {
+
+    // Lots of setup things that need to be added to the main branch
     srand(time(NULL)); //To generate random see for place when I was testing.
 
     // Placing a comment in here to check for pushing
@@ -88,53 +90,14 @@ int main()
     Pause.setFillColor(sf::Color::Black);
     Pause.setPosition(0, 0);
 
-    // run the main loop
 
-    while (window.isOpen())
-    {
-        // Updating dt
-
-        dt = dtClock.restart().asSeconds();
-
-        // handle events
         sf::Event event;
 
-
-        
-           while (window.pollEvent(event))
-           {
-               if (event.type == sf::Event::Closed)
-               {
-                   window.close();
-
-               }
-
-             test.move(window,event,xJim,yJim,gridLength,stepcount);
-
-
-
-           }
-       
-
-        // Render the map and the game elements.
-        window.clear();
-        window.draw(map);
-
-        window.draw(jim);
-
-        window.display();
-
-        int place = map.findTile(xJim, yJim, gridLength, gridWidth);
-
-        pit.Stop(pit, place, 70, xJim, yJim, window, jim, trap2, event);
-        jim.setPosition(xJim, yJim);
-
-        // End of while loops
-    }
-
-    int place = map.findTile(xJim, yJim, gridLength, gridWidth);
-    std::cout << "You just took " << stepcount << " steps\n";
-    std::cout << "You ended on tile number " << place;
+    test.runGame(test,map,pit,70,xJim,yJim,window,jim,trap2,event,dtClock,stepcount,gridLength,gridWidth);
+   
+    //int place = map.findTile(xJim, yJim, gridLength, gridWidth);
+   // std::cout << "You just took " << stepcount << " steps\n";
+    //std::cout << "You ended on tile number " << place;
 
     return 0;
 }

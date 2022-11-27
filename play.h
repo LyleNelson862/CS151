@@ -17,12 +17,15 @@
 class playGame //: sf::Drawable
 {
     public:
-     playGame();
-    void move(sf::RenderWindow &window, sf::Event &event, int &xPos, int &yPos, int gridSize, int &stepcount);
+    //playGame();
+    void move(sf::RenderWindow &window, sf::Event &event, int &xPos, int &yPos, int gridSize, int &stepcount); // Moves the shape
+    void runGame(playGame &gameObj, MyTiles &MapObj, Dialogue &DiaObj,int tile,int xPos,int yPos,sf::RenderWindow &window,sf::CircleShape &jim,int &trap,sf::Event &event,sf::Clock dtClock,int stepcount,int gridLength,int gridWidth);
 
-    void RunGame(sf::RenderWindow &window);
+    // Another problem is that i need to know if 
 
     private:
+    sf::RenderWindow m_window;
+    sf::Event m_event;
 
 };
 
