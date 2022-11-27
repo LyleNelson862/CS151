@@ -1,9 +1,9 @@
 #include "game.h"
 #include "dialogue.h"
-
+#include "play.h"
 int main()
 {
-     srand(time(NULL));
+    srand(time(NULL)); //To generate random see for place when I was testing.
 
     // Placing a comment in here to check for pushing
 
@@ -38,10 +38,10 @@ int main()
     Joe.setFillColor(sf::Color::Blue);
     Joe.setPosition(100, 100);
 
-     //int trap = 0; I need to include these functions in main or else the function does not work 
+    // int trap = 0; I need to include these functions in main or else the function does not work
 
-     int random = rand() %128;
-     //std::cout<<random;
+    int random = rand() % 128;
+    // std::cout<<random;
     int trap2 = 0;
 
     std::string message = "You notice a strange tile on the ground, and touch it with a 5 foot pole,"
@@ -54,7 +54,9 @@ int main()
 
     Dialogue Orc("OpenSans-Regular.ttf", message, 0, 10);
 
-    
+    playGame test; 
+
+
     
             const int level[] =
             {
@@ -86,8 +88,8 @@ int main()
     Pause.setFillColor(sf::Color::Black);
     Pause.setPosition(0, 0);
 
-
     // run the main loop
+
     while (window.isOpen())
     {
         // Updating dt
@@ -97,56 +99,22 @@ int main()
         // handle events
         sf::Event event;
 
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
 
-            if (event.type == sf::Event::KeyPressed)
-            {
-                if (event.key.code == sf::Keyboard::Right)
-                {
-                    if (xJim < 480)
-                    {
-                        xJim = xJim + gridLength;
-                        usleep(9000);
-                        stepcount++;
-                    }
-                }
-                else if (event.key.code == sf::Keyboard::Left)
-                {
-                    if (xJim > 0)
-                    {
-                        xJim = xJim - gridLength;
-                        usleep(9000);
-                        stepcount++;
-                    }
-                }
-                else if (event.key.code == sf::Keyboard::Down)
-                {
-                    if (yJim < 224)
-                    {
-                        yJim = yJim + gridWidth;
-                        usleep(9000);
+        
+           while (window.pollEvent(event))
+           {
+               if (event.type == sf::Event::Closed)
+               {
+                   window.close();
 
-                        stepcount++;
-                    }
-                }
-                else if (event.key.code == sf::Keyboard::Up)
-                {
-                    if (yJim > 0)
-                    {
-                        yJim = yJim - gridWidth;
-                        usleep(9000);
+               }
 
-                        stepcount++;
-                    }
+             test.move(window,event,xJim,yJim,gridLength,stepcount);
 
 
 
-                }
-            }
-        }
+           }
+       
 
         // Render the map and the game elements.
         window.clear();
@@ -154,19 +122,14 @@ int main()
 
         window.draw(jim);
 
-
         window.display();
-
-
 
         int place = map.findTile(xJim, yJim, gridLength, gridWidth);
 
-        pit.Stop(pit, place, 70, xJim, yJim, window, jim, trap2,event);
+        pit.Stop(pit, place, 70, xJim, yJim, window, jim, trap2, event);
         jim.setPosition(xJim, yJim);
 
-
-        
-        //End of while loops
+        // End of while loops
     }
 
     int place = map.findTile(xJim, yJim, gridLength, gridWidth);
@@ -175,4 +138,3 @@ int main()
 
     return 0;
 }
-

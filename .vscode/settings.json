@@ -1,6 +1,10 @@
 {
     "files.associations": {
         "atomic": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "ctime": "cpp",
+        "cstdlib": "cpp",
+        "iostream": "cpp",
+        "string": "cpp"
     }
 }

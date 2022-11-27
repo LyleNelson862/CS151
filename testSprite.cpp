@@ -1,3 +1,5 @@
+/* commeningt this out while I work on my main. 
+
 #include <SFML/Graphics.hpp>
 int main()
 {
@@ -22,3 +24,4 @@ int main()
     }
     return 0;
 }
+*/
