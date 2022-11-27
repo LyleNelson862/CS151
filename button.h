@@ -35,6 +35,7 @@ public:
 
     //This function update the button state and/or look
     void update(sf::Event& e, sf::RenderWindow& window);
+    //int isClicked(int clicked);
     virtual void draw(sf::RenderTarget& target,sf::RenderStates states) const;
 
 private:

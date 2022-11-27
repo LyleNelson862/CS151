@@ -111,7 +111,7 @@ void Button::update(sf::Event &e, sf::RenderWindow &window)
     {
         if (mouseInButton)
         {
-            std::cout<<"Mouse on button.";
+            //std::cout<<"Mouse on button.";
 
             mText.setFillColor(mTextHover);
             mBtnState == state::hovered;
@@ -130,7 +130,7 @@ void Button::update(sf::Event &e, sf::RenderWindow &window)
             {
                 mButton.setRotation(180);
                 mBtnState = state::clicked;
-                std::cout<<"Button clicked";
+                //std::cout<<"Button clicked";
             }
             else
             {
