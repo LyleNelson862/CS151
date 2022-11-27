@@ -18,7 +18,6 @@ bool MyTiles:: load(const std::string &tileset, sf::Vector2u tileSize, const int
                 int tileNumber = tiles[i + j * width];
 
                 // find its position in the tileset texture
-
                 int tu = tileNumber % (m_tileset.getSize().x, tileSize.x);
                 int tv = tileNumber / (m_tileset.getSize().x / tileSize.x);
 

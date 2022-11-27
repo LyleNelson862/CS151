@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include <SFML/Graphics.hpp>
+// #include <Sprite.hpp>
 #include<ctime>
 #include<unistd.h>
 #include<iostream>

@@ -20,6 +20,9 @@ int main()
     sf::CircleShape jim(16);
     jim.setFillColor(sf::Color::Red);
 
+    // sf::sprite jim(texture);
+    // window.draw(sprite);
+
     int xJim = 0;
     int yJim = 0;
 
