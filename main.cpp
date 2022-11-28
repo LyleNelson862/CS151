@@ -25,10 +25,8 @@ int main()
     Character jones;
  
     
-    int xJones = 0;
-    int yJones = 0;
-    char facing = 'R';
-    int stepcount = 0;
+    
+  
 
     // define the level with an array of tile indices
 
@@ -40,6 +38,7 @@ int main()
      int random = rand() %128;
      //std::cout<<random;
     int trap2 = 0;
+    int stepcount =0;
 
     std::string message = "You notice a strange tile on the ground, and touch it with a 5 foot pole,"
                           " \n you then fall into a pit press Space to escape ";
@@ -78,8 +77,6 @@ int main()
         return -1;
     }
 
-    jones.setPosition(xJones, yJones);
-
 
     sf::RectangleShape Pause(sf::Vector2f(512, 256));
     Pause.setFillColor(sf::Color::Black);
@@ -117,7 +114,7 @@ int main()
 
 
 
-    std::cout<<tileNum;
+    //std::cout<<tileNum;
     return 0;
 
 

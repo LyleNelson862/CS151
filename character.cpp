@@ -4,39 +4,47 @@
 
 Character::Character()
 {
-    if (!mTexture.loadFromFile("IndianaJonesCanva.png"))
+    if (!mTexture.loadFromFile("IndianaJonesCanva.png")) //Gets the texture for the file
     {
         std::cout << "Error opening file\n";
         exit(1);
     }
 
-    mCharacter.setTexture(mTexture);
+    mCharacter.setTexture(mTexture); // sets the texture
 
-    sf::Vector2u imageSize = mTexture.getSize();
-    unsigned int mHeight = 16;
-    unsigned int mWidth = (imageSize.x / imageSize.y) * mHeight;
-    sf::Vector2u mSize = {mWidth, mHeight};
-
-    mCharacter.setOrigin(sf::Vector2f(mSize.x * 0.75, 0));
+    sf::Vector2u imageSize = mTexture.getSize(); // I think I need to get the image size for later
 
     mPosition = {0, 0};
-    mCharacter.setPosition(mPosition.x,mPosition.y);
-    mCharacter.setScale(0.1, 0.1);
+    mCharacter.setPosition(mPosition.x, mPosition.y); //Sets the postion at 0,0 in the default constructors
+    mCharacter.setScale(0.07, 0.07); //Setting scale at this for now  
 
-    // get size of internet image
+    // Trying to fix the size of the image and I need to figure ouut how to reduce the size of the 'whitespace' on the figure.
+
+    //unsigned int mHeight = 0;
+    //unsigned int mWidth = (imageSize.x / imageSize.y - 100) * mHeight;
+ //sf::Vector2u mSize = {mWidth, mHeight};
+
+//mCharacter.setOrigin(sf::Vector2f(mSize.x * 0.75, 0));
+    mCharacter.setOrigin(sf::Vector2f(mCharacter.getTexture()->getSize().x * 0.25, 0));
+
+
 
     // Sets the Jones Character to a size that is proportional to the internet image and has height of 16
 
     /* The setOrigin function sets the origin's 'x' coordinate to 75% of the sprite's size, and it's y coorinate
         to zero. This setup gets the character positioned at the center of the squares, and staying in the same
         spot when turning around. */
+
+
+        // Tells me the origin for the shape for testing 
     std::cout << "Origin: " << mSize.x << ", " << mSize.y << std::endl;
 
-    xPos=0;
-    yPos=0;
+    xPos = 0;
+    yPos = 0;
+    facing = 'R';
 }
 
-void Character:: moveJones(sf::RenderWindow &window, sf::Event &event, int gridSize, int &stepcount)
+void Character::moveJones(sf::RenderWindow &window, sf::Event &event, int gridSize, int &stepcount)
 {
 
     if (event.type == sf::Event::KeyPressed)
@@ -48,7 +56,6 @@ void Character:: moveJones(sf::RenderWindow &window, sf::Event &event, int gridS
                 xPos = xPos + gridSize;
                 usleep(9000);
                 stepcount++;
-
             }
         }
         else if (event.key.code == sf::Keyboard::Left)
@@ -83,33 +90,26 @@ void Character:: moveJones(sf::RenderWindow &window, sf::Event &event, int gridS
     }
 }
 
-
-
-
-    void Character::runGameJones(MyTiles &MapObj,/* Dialogue &DiaObj*/int tile,sf::RenderWindow &window,
-    Character &Jones,int &trap,sf::Event &event,sf::Clock dtClock,int stepcount,int gridLength,int gridWidth) //moved becuase it is a long line
-    {
-         while (window.isOpen())
+void Character::runGameJones(MyTiles &MapObj, /* Dialogue &DiaObj*/ int tile, sf::RenderWindow &window,
+                             Character &Jones, int &trap, sf::Event &event, sf::Clock dtClock, int stepcount, int gridLength, int gridWidth) // moved becuase it is a long line
+{
+    while (window.isOpen())
     {
         // Updating dt
 
-        //dt = dtClock.restart().asSeconds();
+        // dt = dtClock.restart().asSeconds();
 
         // handle events
-        
-           while (window.pollEvent(event))
-           {
-               if (event.type == sf::Event::Closed)
-               {
-                   window.close();
 
-               }
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+            {
+                window.close();
+            }
 
-             Jones.moveJones(window,event,gridLength,stepcount);
-
-
-           }
-       
+            Jones.moveJones(window, event, gridLength, stepcount);
+        }
 
         // Render the map and the game elements.
         window.clear();
@@ -119,9 +119,8 @@ void Character:: moveJones(sf::RenderWindow &window, sf::Event &event, int gridS
         window.display();
 
         int place = MapObj.findTile(xPos, yPos, gridLength, gridWidth);
-
-        //DiaObj.StopJones(DiaObj, place, 70, xPos, yPos, window, Jones, trap, event);
+        // DiaObj.StopJones(DiaObj, place, 70, xPos, yPos, window, Jones, trap, event);
         mCharacter.setPosition(xPos, yPos);
         // End of while loops
     }
-    }
+}

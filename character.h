@@ -28,8 +28,10 @@ public:
 
     sf::Sprite mCharacter; //I am an idiot I forgot that I needed to actually draw the charcter.
 private:
-    int xPos = 0;
-    int yPos = 0;
+    int xPos;
+    int yPos;
+    char facing;
+    int stepcount = 0;
     sf::Vector2f mPosition;
     sf::Texture mTexture;
     sf::Texture mHeight;
