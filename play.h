@@ -17,19 +17,20 @@
 class playGame //: sf::Drawable
 {
     public:
-    //playGame();  working on default constructor  for these things
+    playGame(); // working on default constructor  for these things
 
- void runGameJones(MyTiles &MapObj, Dialogue &DiaObj, int tile, sf::RenderWindow &window,
-                             Character &Jones, int &trap, sf::Event &event, sf::Clock dtClock, int stepcount, int gridLength, int gridWidth);
+ void runGameJones(int tile, sf::RenderWindow &window, int &trap,sf::Clock dtClock, int stepcount);
 
 
-    private:    //I need to create variables so I don;t need to use main
+    private:    //I need to create variables so I don't need to use main
+        sf::RenderWindow window;
         sf::Event m_event;
         int m_Gridsize;
         int m_stepcount;
         int mTrap;
-        MyTiles map1;
+        MyTiles MapObj;
         Dialogue Dia1;
+        Character Jones;
 
 
 

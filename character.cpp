@@ -45,6 +45,8 @@ Character::Character()
     facing = 'R';
 }
 
+
+
 void Character::moveJones(sf::RenderWindow &window, sf::Event &event, int gridSize, int &stepcount)
 {
 
@@ -79,6 +81,7 @@ void Character::moveJones(sf::RenderWindow &window, sf::Event &event, int gridSi
                 mCharacter.scale(1.f, 1.f); // This is a built-in function that flips the image.
 
                 facing = 'L';
+                
             }
             
             if (xPos > 0)

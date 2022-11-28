@@ -1,4 +1,12 @@
 #include "game.h"
+
+MyTiles::MyTiles()
+{
+        
+   gridLength = 32;
+     gridWidth = 32;
+}
+
 bool MyTiles:: load(const std::string &tileset, sf::Vector2u tileSize, const int *tiles, unsigned int width, unsigned int height)
     {
         // load the tileset texture
