@@ -12,7 +12,7 @@ int main()
 
     sf::Clock dtClock;
     float dt = 0.f;
-    sf::RenderWindow window(sf::VideoMode(512, 256), "Adventure?");
+    sf::RenderWindow window(sf::VideoMode(512, 256), "A Walk in the Park");
 
     int trap2 = 0;
     int stepcount = 0;
