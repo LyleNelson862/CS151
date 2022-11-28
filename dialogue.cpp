@@ -92,7 +92,7 @@ void Dialogue::draw(sf::RenderTarget &target, sf::RenderStates states) const
 }
 
 
-
+/*
 void Dialogue::StopJones(const Dialogue &obj, int place, int tile, int xPos, int yPos, sf::RenderWindow &window, Character jones, int &trap, sf::Event &event)
 {
     // Needs to accept a integer to see if function has already ran.
@@ -137,3 +137,5 @@ void Dialogue::StopJones(const Dialogue &obj, int place, int tile, int xPos, int
         }
     }
 }
+
+*/
