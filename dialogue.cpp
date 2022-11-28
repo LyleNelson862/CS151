@@ -1,5 +1,25 @@
 #include "dialogue.h"
 
+Dialogue::Dialogue()
+{
+    sf::Font font;
+
+    if (!font.loadFromFile("OpenSans-Regular.ttf"))
+    {
+        std::cout << "Error loading font";
+        exit(2);
+    }
+    mFont = font;
+
+    // mTest = message;
+    mText.setFont(mFont);
+    mText.setCharacterSize(10);
+    mText.setString("Default Message");
+    mText.setFillColor(sf::Color::White);
+    mText.setPosition(0, 0);
+}
+
+
 Dialogue::Dialogue(std::string fontType, std::string message, int xPos, int yPos)
 {
     sf::Font font;

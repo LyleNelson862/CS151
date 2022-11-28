@@ -1,4 +1,5 @@
 #include "play.h"
+
 /*
 playGame::playGame()
 {
@@ -11,20 +12,22 @@ playGame::playGame()
     sf::Clock dtClock;
     float dt = 0.f;
     // Clock used to help fix the input
-    sf::RenderWindow window(sf::VideoMode(512, 256), "Tilemap");
+    sf::RenderWindow m_window(sf::VideoMode(512, 256), "Tilemap");
 
 
     // Creating a shape that can be used
 
     // Jim the protaganist I guess
-    sf::CircleShape jim(16);
-    jim.setFillColor(sf::Color::Red);
+    sf::CircleShape mJim(16);
+    mJim.setFillColor(sf::Color::Red);
+    
+    mJim = mJim;
 
     // sf::sprite jim(texture);
     // window.draw(sprite);
 
-    int xJim = 0;
-    int yJim = 0;
+    m_Xpos = 0;
+    m_Ypos = 0;
 
     int stepcount = 0;
 
@@ -32,29 +35,26 @@ playGame::playGame()
 
     sf::View view;
     view.setSize(512, 256);
-    view.setCenter(window.getSize().x / 2.f, window.getSize().y / 2.f);
+    view.setCenter(m_window.getSize().x / 2.f, m_window.getSize().y / 2.f);
 
-    sf::CircleShape Joe(40);
-    Joe.setFillColor(sf::Color::Blue);
-    Joe.setPosition(100, 100);
+    //sf::CircleShape Joe(40);
+    //Joe.setFillColor(sf::Color::Blue);
+    //Joe.setPosition(100, 100);
 
     // int trap = 0; I need to include these functions in main or else the function does not work
 
     int random = rand() % 128;
     // std::cout<<random;
-    int trap2 = 0;
+    int mTrap = 0;
 
     std::string message = "You notice a strange tile on the ground, and touch it with a 5 foot pole,"
                           " \n you then fall into a pit press Space to escape ";
 
-    Dialogue pit("OpenSans-Regular.ttf", message, 0, 0);
 
-    message = "An Orc with armed musket approaches you, and wants to speak with you "
-              "\n Press T to speak the orc";
+//    message = "An Orc with armed musket approaches you, and wants to speak with you "
+  //            "\n Press T to speak the orc";
 
-    Dialogue Orc("OpenSans-Regular.ttf", message, 0, 10);
-
-    playGame test; 
+    //Dialogue Orc("OpenSans-Regular.ttf", message, 0, 10);
 
 
     
@@ -77,15 +77,15 @@ playGame::playGame()
     float gridLength = 32;
     float gridWidth = 32;
     float viewspeed = 1;
-    MyTiles map;
+    MyTiles map1;
 
-    if (!map.load("rpg_textures.png", sf::Vector2u(gridLength, gridWidth), level, 16, 8))
+    if (!map1.load("rpg_textures.png", sf::Vector2u(gridLength, gridWidth), level, 16, 8))
     {
         std::cout<<"Error loading textures";
         exit(1);
     }
 
-    jim.setPosition(xJim, yJim);
+    mJim.setPosition(m_Xpos, m_Ypos);
 
     sf::RectangleShape Pause(sf::Vector2f(512, 256));
     Pause.setFillColor(sf::Color::Black);
@@ -97,6 +97,7 @@ playGame::playGame()
 }
 
 */
+
 
 void playGame:: move(sf::RenderWindow &window, sf::Event &event, int &xPos, int &yPos, int gridSize, int &stepcount)
 {

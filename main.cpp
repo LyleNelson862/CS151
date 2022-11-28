@@ -3,9 +3,10 @@
 #include "play.h"
 int main()
 {
+    // I need to remove all of this setup from main and place it into a different file 
 
-    // Lots of setup things that need to be added to the main branch
-    srand(time(NULL)); //To generate random see for place when I was testing.
+
+    srand(time(NULL)); //To generate random seed for place when I was testing.
 
     // Placing a comment in here to check for pushing
 
@@ -55,6 +56,8 @@ int main()
               "\n Press T to speak the orc";
 
     Dialogue Orc("OpenSans-Regular.ttf", message, 0, 10);
+    
+    Dialogue def;
 
     playGame test; 
 
@@ -91,9 +94,14 @@ int main()
     Pause.setPosition(0, 0);
 
 
-        sf::Event event;
+    sf::Event event;
 
-    test.runGame(test,map,pit,70,xJim,yJim,window,jim,trap2,event,dtClock,stepcount,gridLength,gridWidth);
+
+
+
+   // Game is now ran through this line of dialgoue.      
+
+    test.runGame(test,map,def,70,xJim,yJim,window,jim,trap2,event,dtClock,stepcount,gridLength,gridWidth);
    
     //int place = map.findTile(xJim, yJim, gridLength, gridWidth);
    // std::cout << "You just took " << stepcount << " steps\n";

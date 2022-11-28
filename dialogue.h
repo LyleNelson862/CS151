@@ -12,6 +12,7 @@
 class Dialogue : public sf::Drawable //, public sf::Transformable
 {
 public:
+    Dialogue(); //Default constructor;
     Dialogue(std::string font, std::string message,int xPos, int yPos);
 
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
