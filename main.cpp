@@ -21,23 +21,15 @@ int main()
     // jim.setFillColor(sf::Color::Red);
     // sf::RenderWindow character(sf::VideoMode(800, 800), "SFML works!");
 
-    sf::Texture textureTile;
-    textureTile.loadFromFile("IndianaJonesCanva.png");
-    Character jones;
-    jones.setTexture(textureTile);
-    jones.setScale (0.08, 0.08);
-
-    // sf::Texture textureTile;
-    // textureTile.loadFromFile("IndianaJonesCanva.png");
-    // Character jones;
-    // displayCharacter(jones, textureTile);
+    // Default Constructor called in main
+    Character jones();
+    
     int xJones = 0;
     int yJones = 0;
     char facing = 'R';
     int stepcount = 0;
 
     // define the level with an array of tile indices
-
     sf::View view;
     view.setSize(512, 256);
     view.setCenter(window.getSize().x / 2.f, window.getSize().y / 2.f);
@@ -63,7 +55,7 @@ int main()
     Dialogue Orc("OpenSans-Regular.ttf", message, 0, 10);
 
     
-
+    MyTiles tileNum;
     
     const int level[] =
     {
@@ -91,12 +83,12 @@ int main()
         return -1;
     }
 
-    jones.setPosition(xJones, yJones);
+    // jones.setPosition(xJones, yJones);
     /* The setOrigin function sets the origin's 'x' coordinate to 75% of the sprite's size, and it's y coorinate
-        to zero. This setup gets the character positioned at the center of the square, and staying in the same
+        to zero. This setup gets the character positioned at the center of the squares, and staying in the same
         spot when turning around. */
-    jones.setOrigin(sf::Vector2f(jones.getTexture()->getSize().x * 0.75, 0));
-    std::cout<<"Origin: "<<jones.getOrigin().x<<", "<< jones.getOrigin().y<<std::endl;
+    // jones.setOrigin(sf::Vector2f(jones.getTexture()->getSize().x * 0.75, 0));
+    // std::cout<<"Origin: "<<jones.getOrigin().x<<", "<< jones.getOrigin().y<<std::endl;
 
     sf::RectangleShape Pause(sf::Vector2f(512, 256));
     Pause.setFillColor(sf::Color::Black);
@@ -126,7 +118,7 @@ int main()
                         usleep(9000);
                         stepcount++;
                         if(facing == 'L'){
-                            jones.scale(-1.f, 1.f);    // This is a built-in function that flips the image.
+                            // jones.scale(-1.f, 1.f);    // This is a built-in function that flips the image.
                             facing = 'R';
                         }
                     }
@@ -139,7 +131,7 @@ int main()
                         usleep(9000);
                         stepcount++;
                         if(facing == 'R'){
-                            jones.scale(-1.f, 1.f);  // This is a built-in function that flips the image.
+                            // jones.scale(-1.f, 1.f);  // This is a built-in function that flips the image.
                             facing = 'L';
                         }
                     }
@@ -170,8 +162,9 @@ int main()
         // Render the map and the game elements.
         window.clear();
         window.draw(map);
-        jones.setPosition(xJones, yJones);
-        window.draw(jones);
+        // jones.setPosition(xJones, yJones);
+        // window.draw(jones);
         window.display();
+        tileNum.findTile(xJones, yJones, gridLength, gridWidth);
     }
 }
