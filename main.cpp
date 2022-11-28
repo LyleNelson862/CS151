@@ -4,8 +4,6 @@
 #include "play.h"
 #include <iostream>
  
-
- 
  
 int main()
 {
@@ -85,28 +83,9 @@ int main()
 
         playGame test;
 
-    /*
-    while(window.isOpen())
-    {
-        window.clear();
-        window.draw(jones.mCharacter);
-        window.display();
-        
-           while (window.pollEvent(event))
-           {
-               if (event.type == sf::Event::Closed)
-               {
-                   window.close();
 
-               }
+        //Runs the game
 
-               jones.moveJones(window,event,gridLength,stepcount);
-             
-
-           }
-    }
-
-    */
     
         test.runGameJones(map,pit,70,window,jones,trap2,event,dtClock,stepcount,gridLength,gridWidth);     
 

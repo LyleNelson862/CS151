@@ -37,9 +37,6 @@ playGame::playGame()
     view.setSize(512, 256);
     view.setCenter(m_window.getSize().x / 2.f, m_window.getSize().y / 2.f);
 
-    //sf::CircleShape Joe(40);
-    //Joe.setFillColor(sf::Color::Blue);
-    //Joe.setPosition(100, 100);
 
     // int trap = 0; I need to include these functions in main or else the function does not work
 

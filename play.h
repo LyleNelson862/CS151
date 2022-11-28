@@ -24,14 +24,12 @@ class playGame //: sf::Drawable
 
 
     private:    //I need to create variables so I don;t need to use main
-    sf::Event m_event;
-    int m_Gridsize;
-    int m_stepcount;
-    int mTrap;
-    sf::CircleShape mJim;
-
-    MyTiles map1;
-    Dialogue Dia1;
+        sf::Event m_event;
+        int m_Gridsize;
+        int m_stepcount;
+        int mTrap;
+        MyTiles map1;
+        Dialogue Dia1;
 
 
 

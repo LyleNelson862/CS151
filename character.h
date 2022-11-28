@@ -22,7 +22,6 @@ public:
      //void runGameJones(MyTiles &MapObj, Dialogue &DiaObj,int tile,sf::RenderWindow &window,
     //Character &Jones,int &trap,sf::Event &event,sf::Clock dtClock,int stepcount,int gridLength,int gridWidth);
 
-   // ~Character();
 
     sf::Sprite mCharacter; //I am an idiot I forgot that I needed to actually draw the charcter. I put this in public because I think it would work better
       int xPos;
