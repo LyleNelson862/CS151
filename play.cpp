@@ -186,3 +186,46 @@ void playGame:: move(sf::RenderWindow &window, sf::Event &event, int &xPos, int 
         // End of while loops
     }
     }
+
+
+    void playGame::runGameJones(playGame &gameObj, MyTiles &MapObj, Dialogue &DiaObj,int tile,int xPos,int yPos,sf::RenderWindow &window,
+    Character &Jones,int &trap,sf::Event &event,sf::Clock dtClock,int stepcount,int gridLength,int gridWidth) //moved becuase it is a long line
+    {
+         while (window.isOpen())
+    {
+        // Updating dt
+
+        //dt = dtClock.restart().asSeconds();
+
+        // handle events
+        
+           while (window.pollEvent(event))
+           {
+               if (event.type == sf::Event::Closed)
+               {
+                   window.close();
+
+               }
+
+             gameObj.move(window,event,xPos,yPos,gridLength,stepcount);
+
+
+
+           }
+       
+
+        // Render the map and the game elements.
+        window.clear();
+        window.draw(MapObj);
+
+        window.draw(Jones);
+
+        window.display();
+
+        int place = MapObj.findTile(xPos, yPos, gridLength, gridWidth);
+
+        DiaObj.StopJones(DiaObj, place, 70, xPos, yPos, window, Jones, trap, event);
+        Jones.setPosition(xPos, yPos);
+        // End of while loops
+    }
+    }
