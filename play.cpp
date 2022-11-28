@@ -99,6 +99,7 @@ playGame::playGame()
 */
 
 //Old move function. 
+/*
 void playGame:: move(sf::RenderWindow &window, sf::Event &event, int &xPos, int &yPos, int gridSize, int &stepcount)
 {
 
@@ -144,7 +145,10 @@ void playGame:: move(sf::RenderWindow &window, sf::Event &event, int &xPos, int 
         }
     }
 }
+*/
 
+
+/*
     void playGame::runGame(playGame &gameObj, MyTiles &MapObj, Dialogue &DiaObj,int tile,int xPos,int yPos,sf::RenderWindow &window,
     sf::CircleShape &jim,int &trap,sf::Event &event,sf::Clock dtClock,int stepcount,int gridLength,int gridWidth) //moved becuase it is a long line
     {
@@ -186,3 +190,39 @@ void playGame:: move(sf::RenderWindow &window, sf::Event &event, int &xPos, int 
         // End of while loops
     }
     }
+
+*/
+void playGame::runGameJones(MyTiles &MapObj, Dialogue &DiaObj, int tile, sf::RenderWindow &window,
+                             Character &Jones, int &trap, sf::Event &event, sf::Clock dtClock, int stepcount, int gridLength, int gridWidth) // moved becuase it is a long line
+{
+    while (window.isOpen())
+    {
+        // Updating dt
+
+        // dt = dtClock.restart().asSeconds();
+
+        // handle events
+
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+            {
+                window.close();
+            }
+
+            Jones.moveJones(window, event, gridLength, stepcount);
+        }
+
+        // Render the map and the game elements.
+        window.clear();
+        window.draw(MapObj);
+
+        window.draw(Jones.mCharacter);
+        window.display();
+
+        int place = MapObj.findTile(Jones.xPos, Jones.yPos, gridLength, gridWidth);
+        DiaObj.StopJones(DiaObj, place, 70, Jones.xPos, Jones.yPos, window, Jones, trap, event);
+        Jones.mCharacter.setPosition(Jones.xPos, Jones.yPos);
+        // End of while loops
+    }
+}

@@ -23,11 +23,9 @@ int main()
     sf::Texture textureTile;
     textureTile.loadFromFile("IndianaJonesCanva.png");
     Character jones;
- 
-    
-    
-  
 
+
+    
     // define the level with an array of tile indices
 
     sf::View view;
@@ -110,7 +108,7 @@ int main()
 
     */
     
-        jones.runGameJones(map,/*pit,*/70,window,jones,trap2,event,dtClock,stepcount,gridLength,gridWidth);     
+        test.runGameJones(map,pit,70,window,jones,trap2,event,dtClock,stepcount,gridLength,gridWidth);     
 
 
 

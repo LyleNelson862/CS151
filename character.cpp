@@ -90,7 +90,9 @@ void Character::moveJones(sf::RenderWindow &window, sf::Event &event, int gridSi
     }
 }
 
-void Character::runGameJones(MyTiles &MapObj, /* Dialogue &DiaObj*/ int tile, sf::RenderWindow &window,
+/*
+
+void Character::runGameJones(MyTiles &MapObj, Dialogue &DiaObj, int tile, sf::RenderWindow &window,
                              Character &Jones, int &trap, sf::Event &event, sf::Clock dtClock, int stepcount, int gridLength, int gridWidth) // moved becuase it is a long line
 {
     while (window.isOpen())
@@ -124,3 +126,4 @@ void Character::runGameJones(MyTiles &MapObj, /* Dialogue &DiaObj*/ int tile, sf
         // End of while loops
     }
 }
+*/

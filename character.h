@@ -9,8 +9,6 @@
 #include<cstdlib>
 #include "button.h"
 #include "game.h"
-#include "character.h"
-#include "dialogue.h"
 
 
 class Character: public sf::Sprite, public sf::Texture
@@ -21,15 +19,16 @@ public:
     // Character(sf::Vector2f position, sf::Vector2f size, sf::Texture texture);
 
     void moveJones(sf::RenderWindow &window, sf::Event &event,int gridSize, int &stepcount);
-     void runGameJones(MyTiles &MapObj, /*Dialogue &DiaObj,*/int tile,sf::RenderWindow &window,
-    Character &Jones,int &trap,sf::Event &event,sf::Clock dtClock,int stepcount,int gridLength,int gridWidth);
+     //void runGameJones(MyTiles &MapObj, Dialogue &DiaObj,int tile,sf::RenderWindow &window,
+    //Character &Jones,int &trap,sf::Event &event,sf::Clock dtClock,int stepcount,int gridLength,int gridWidth);
 
    // ~Character();
 
-    sf::Sprite mCharacter; //I am an idiot I forgot that I needed to actually draw the charcter.
+    sf::Sprite mCharacter; //I am an idiot I forgot that I needed to actually draw the charcter. I put this in public because I think it would work better
+      int xPos;
+    int yPos; // Making this public to see if I can solve problems.
 private:
-    int xPos;
-    int yPos;
+  
     char facing;
     int stepcount = 0;
     sf::Vector2f mPosition;

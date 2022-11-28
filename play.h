@@ -10,7 +10,6 @@
 #include "button.h"
 #include "game.h"
 #include "dialogue.h"
-#include "character.h"
     
 
     //void move(sf::RenderWindow &window,sf::Event &event,int &xPos,int &yPos,int gridSize,int &stepcount);
@@ -20,15 +19,14 @@ class playGame //: sf::Drawable
     public:
     //playGame();  working on default constructor  for these things
 
-    void move(sf::RenderWindow &window, sf::Event &event, int &xPos, int &yPos, int gridSize, int &stepcount); // Moves the shape
-    void runGame(playGame &gameObj, MyTiles &MapObj, Dialogue &DiaObj,int tile,int xPos,int yPos,sf::RenderWindow &window,sf::CircleShape &jim,int &trap,sf::Event &event,sf::Clock dtClock,int stepcount,int gridLength,int gridWidth);
+    //void move(sf::RenderWindow &window, sf::Event &event, int &xPos, int &yPos, int gridSize, int &stepcount); // Moves the shape
+    //void runGame(playGame &gameObj, MyTiles &MapObj, Dialogue &DiaObj,int tile,int xPos,int yPos,sf::RenderWindow &window,sf::CircleShape &jim,int &trap,sf::Event &event,sf::Clock dtClock,int stepcount,int gridLength,int gridWidth);
 
     // Another problem is that i need to know if 
 
 
-    void runGameJones(playGame &gameObj, MyTiles &MapObj, Dialogue &DiaObj,int tile,int xPos,int yPos,sf::RenderWindow &window,
-    Character &Jones,int &trap,sf::Event &event,sf::Clock dtClock,int stepcount,int gridLength,int gridWidth); //moved becuase it is a long line
-
+ void runGameJones(MyTiles &MapObj, Dialogue &DiaObj, int tile, sf::RenderWindow &window,
+                             Character &Jones, int &trap, sf::Event &event, sf::Clock dtClock, int stepcount, int gridLength, int gridWidth);
 
 
     private:    //I need to create variables so I don;t need to use main
