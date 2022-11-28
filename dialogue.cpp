@@ -66,7 +66,7 @@ void Dialogue::StopJones(const Dialogue &obj, int place, int tile, int xPos, int
             int cease = 0;
             window.draw(Pause); // How do I allow the function to draw something to window.
             window.draw(obj);   // Accepts dialogue would need to pass an object to itself
-            Button Option("testing", {100, 100}, {50, 20}, sf::Color::Red);
+            Button Option("Enter", {100, 100}, {50, 20}, sf::Color::Red);
             window.draw(Option);
             window.display();
 

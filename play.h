@@ -18,7 +18,7 @@ class playGame //: sf::Drawable
 public:
     playGame(); // working on default constructor  for these things
 
-    void runGameJones(int tile, sf::RenderWindow &window, int &trap, sf::Clock dtClock, int stepcount);
+    void runGameJones(sf::RenderWindow &window, int &trap, sf::Clock dtClock, int stepcount);
 
 private: // I need to create variables so I don't need to use main
     sf::RenderWindow window;
@@ -29,6 +29,8 @@ private: // I need to create variables so I don't need to use main
     MyTiles MapObj;
     Dialogue Dia1;
     Character Jones;
+
+    int random;
 };
 
 #endif

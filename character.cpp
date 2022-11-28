@@ -59,7 +59,7 @@ void Character::moveJones(sf::RenderWindow &window, sf::Event &event, int gridSi
                 {
                      //mCharacter.setOrigin(sf::Vector2f(mCharacter.getTexture()->getSize().x * 0.25, 0));
                     //mCharacter.setRotation(180);
-                    mCharacter.scale(1.f, 1.f); // This is a built-in function that flips the image.
+                    mCharacter.scale(1, 1); // This is a built-in function that flips the image.
 
                     facing = 'R';
                 }
@@ -76,7 +76,7 @@ void Character::moveJones(sf::RenderWindow &window, sf::Event &event, int gridSi
                 // mCharacter.setOrigin(sf::Vector2f(mCharacter.getTexture()->getSize().x * -0.25, 0));
                 //  The problem is that the amount of whitespace creates problems.
                 //mCharacter.setRotation(180);
-                mCharacter.scale(1.f, 1.f); // This is a built-in function that flips the image.
+                mCharacter.scale(1, 1); // This is a built-in function that flips the image.
 
                 facing = 'L';
                 

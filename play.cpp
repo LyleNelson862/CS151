@@ -4,19 +4,19 @@
 playGame::playGame()
 {
      srand(time(NULL));
-     int random = rand() %128;
+      random = rand() %128;
         
 
     const int level[] =
     {
-        4,4,4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
-        4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
-        4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
-        4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
-        4, 4, 4, 4, 4, 4, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4,
-        4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
-        4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
-        4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
+        4,4,4, 4, 4, 4, 4, 4, 4, 4, 4, 100, 100, 4, 4, 4,
+        4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 4, 100, 4, 4, 4, 4,
+        4, 3, 3, 4, 4, 4, 4, 4, 4, 3, 4, 100, 3, 3, 4, 4,
+        4, 3, 4, 4, 67, 66, 4, 4, 4, 4, 4, 100, 34, 35, 4, 4,
+        4, 3, 4, 4, 66, 67, 2, 4, 4, 4, 4, 100, 3, 3, 4, 4,
+        4, 3, 4, 4, 4, 4, 4, 4, 3, 4, 4, 100, 4, 3, 4, 4,
+        4, 3, 4, 4, 4, 4, 4, 4, 3, 4, 4, 3, 3, 4, 4, 4,
+        4, 3, 4, 4, 4, 4, 4, 4, 3, 4, 4, 3, 3, 4, 4, 4,
     };
 
     
@@ -29,7 +29,7 @@ playGame::playGame()
 }
 
 
-void playGame::runGameJones(int tile, sf::RenderWindow &window,int &trap,sf::Clock dtClock, int stepcount) // moved becuase it is a long line
+void playGame::runGameJones(sf::RenderWindow &window,int &trap,sf::Clock dtClock, int stepcount) // moved becuase it is a long line
 {
     while (window.isOpen())
     {
@@ -63,7 +63,7 @@ void playGame::runGameJones(int tile, sf::RenderWindow &window,int &trap,sf::Clo
         Dia1.setMessage("Suddenly out of nowhere, darkness envelops you as you are sucked into outer space,\n"
         " press the spacebar to escape");
         
-        Dia1.StopJones(Dia1, place, tile, Jones.xPos, Jones.yPos, window, Jones, trap, m_event);
+        Dia1.StopJones(Dia1, place, random, Jones.xPos, Jones.yPos, window, Jones, trap, m_event);
         Jones.mCharacter.setPosition(Jones.xPos, Jones.yPos);
         // End of while loops
     }

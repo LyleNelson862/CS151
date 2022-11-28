@@ -19,7 +19,7 @@ int main()
 
     playGame Adventure;
     // Runs the game
-    Adventure.runGameJones(70, window, trap2, dtClock, stepcount);
+    Adventure.runGameJones(window, trap2, dtClock, stepcount);
 
     return 0;
 }
