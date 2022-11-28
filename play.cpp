@@ -5,6 +5,7 @@ playGame::playGame()
 {
      srand(time(NULL));
       random = rand() %128;
+
         
 
     const int level[] =
