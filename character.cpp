@@ -12,7 +12,7 @@ Character::Character()
 
     mCharacter.setTexture(mTexture); // sets the texture
 
-    sf::Vector2u imageSize = mTexture.getSize(); // I think I need to get the image size for later
+    //sf::Vector2u imageSize = mTexture.getSize(); // I think I need to get the image size for later
     mCharacter.setTextureRect(sf::IntRect(290, 40, 230, 374));
 
     mPosition = {0, 0};

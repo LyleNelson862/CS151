@@ -11,7 +11,6 @@ int main()
     // Clock used to help fix the input
 
     sf::Clock dtClock;
-    float dt = 0.f;
     sf::RenderWindow window(sf::VideoMode(512, 256), "A Walk in the Park");
 
     int trap2 = 0;

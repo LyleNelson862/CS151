@@ -114,7 +114,7 @@ void Button::update(sf::Event &e, sf::RenderWindow &window)
             //std::cout<<"Mouse on button.";
 
             mText.setFillColor(mTextHover);
-            mBtnState == state::hovered;
+            //mBtnState == state::hovered;
         }
         else
         {
