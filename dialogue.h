@@ -20,10 +20,13 @@ public:
 
     void Stop(const Dialogue &obj,int place,int tile,int xPos,int yPos,sf::RenderWindow &window,sf::CircleShape &jim,int &trap,sf::Event &event);
     void StopJones(const Dialogue &obj, int place, int tile, int xPos, int yPos, sf::RenderWindow &window, Character &jones, int &trap, sf::Event &event);
+
+    void setMessage(std::string m);
     
     
 
 private:
+    std::string message;
     sf::RectangleShape mRect;
     sf::Text mText;
     sf::Font mFont;

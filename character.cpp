@@ -13,8 +13,6 @@ Character::Character()
     mCharacter.setTexture(mTexture); // sets the texture
 
     sf::Vector2u imageSize = mTexture.getSize(); // I think I need to get the image size for later
-    std::cout<<imageSize.x;
-    //453
      mCharacter.setTextureRect(sf::IntRect(268,40,307,374));
 
     

@@ -9,14 +9,14 @@ playGame::playGame()
 
     const int level[] =
     {
-        4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-        4, 1, 1, 1, 1, 1, 1, 4, 4, 4, 4, 2, 4, 0, 0, 0,
-        1, 1, 4, 4, 4, 43, 4, 9, 3, 3, 3, 31, 3, 35, 3, 3,
-        23, 1, 0, 4, 2, 3, 3, 3, 3, 13, 1, 1, 1, 4, 4, 4,
-        4, 1, 1, 4, 3, 3, 60, 25, 4, 55, 1, 1, 1, 2, 4, 4,
-        4, 4, 1, 41, 3, 4, 18, 2, 4, 4, 1, 1, 1, 1, 2, 4,
-        2, 4, 1, 4, 3, 4, 26, 2, 2, 4, 1, 1, 1, 1, 1, 1,
-        4, 4, 1, 4, 3, 2, 2, 2, 4, 4, 4, 4, 1, 1, 1, 1,
+        4,4,4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
+        4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
+        4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
+        4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
+        4, 4, 4, 4, 4, 4, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4,
+        4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
+        4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
+        4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
     };
 
     
@@ -47,6 +47,8 @@ void playGame::runGameJones(int tile, sf::RenderWindow &window,int &trap,sf::Clo
             }
 
             Jones.moveJones(window, m_event, MapObj.gridLength, stepcount);
+
+
         }
 
         // Render the map and the game elements.
@@ -57,7 +59,11 @@ void playGame::runGameJones(int tile, sf::RenderWindow &window,int &trap,sf::Clo
         window.display();
 
         int place = MapObj.findTile(Jones.xPos, Jones.yPos, MapObj.gridLength, MapObj.gridWidth);
-        Dia1.StopJones(Dia1, place, 70, Jones.xPos, Jones.yPos, window, Jones, trap, m_event);
+
+        Dia1.setMessage("Suddenly out of nowhere, darkness envelops you as you are sucked into outer space,\n"
+        " press the spacebar to escape");
+        
+        Dia1.StopJones(Dia1, place, tile, Jones.xPos, Jones.yPos, window, Jones, trap, m_event);
         Jones.mCharacter.setPosition(Jones.xPos, Jones.yPos);
         // End of while loops
     }
