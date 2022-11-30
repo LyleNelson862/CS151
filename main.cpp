@@ -1,5 +1,5 @@
 #include "game.h"
-
+#include "character.h"
 int main()
 {
     // create the window
@@ -10,11 +10,18 @@ int main()
     // jim.setFillColor(sf::Color::Red);
 
     // sf::RenderWindow character(sf::VideoMode(800, 800), "SFML works!");
+
+    // sf::Texture textureTile;
+    // textureTile.loadFromFile("IndianaJonesCanva.png");
+    // Character jones;
+    // jones.setTexture(textureTile);
+    // jones.setScale (0.07, 0.07);
+
     sf::Texture textureTile;
-    textureTile.loadFromFile("IndianaJonesCanva.png");
-    sf::Sprite jones;
-    jones.setTexture(textureTile);
-    jones.setScale (0.1, 0.1);
+    // textureTile.loadFromFile("IndianaJonesCanva.png");
+    Character jones;
+    // displayCharacter(jones, textureTile);
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -67,15 +74,24 @@ int main()
         window.draw(jones);
         window.display();
 
+        char facing = 'R';
         if (event.type == sf::Event::KeyPressed)
         {
             if (event.key.code == sf::Keyboard::Right)
             {
                 xJones++;
+                // if(facing == 'L'){
+                //     jones.turnAround();
+                // }
+                facing = 'R';
             }
             else if (event.key.code == sf::Keyboard::Left)
             {
                 xJones--;
+                // if(facing == 'R'){
+                //     jones.turnAround();
+                // }
+                facing = 'L';
             }
              else if (event.key.code == sf::Keyboard::Down)
             {
