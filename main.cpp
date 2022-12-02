@@ -1,4 +1,5 @@
 #include "game.h"
+#include "character.h"
 #include "dialogue.h"
 
 int main()
@@ -15,17 +16,24 @@ int main()
     sf::RenderWindow window(sf::VideoMode(512, 256), "Tilemap");
 
     // Creating a shape that can be used
+    // sf::CircleShape jim(16);
+    // jim.setFillColor(sf::Color::Red);
 
-    // Jim the protaganist I guess
-    sf::CircleShape jim(16);
-    jim.setFillColor(sf::Color::Red);
+    // sf::RenderWindow character(sf::VideoMode(800, 800), "SFML works!");
 
-    // sf::sprite jim(texture);
-    // window.draw(sprite);
+    sf::Texture textureTile;
+    textureTile.loadFromFile("IndianaJonesCanva.png");
+    Character jones;
+    jones.setTexture(textureTile);
+    jones.setScale (0.07, 0.07);
 
-    int xJim = 0;
-    int yJim = 0;
-
+    // sf::Texture textureTile;
+    // textureTile.loadFromFile("IndianaJonesCanva.png");
+    // Character jones;
+    // displayCharacter(jones, textureTile);
+    int xJones = 0;
+    int yJones = 0;
+    char facing = 'R';
     int stepcount = 0;
 
     // define the level with an array of tile indices
@@ -57,17 +65,17 @@ int main()
     
 
     
-            const int level[] =
-            {
-                4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                4, 1, 1, 1, 1, 1, 1, 4, 4, 4, 4, 2, 4, 0, 0, 0,
-                1, 1, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3,
-                23, 1, 0, 4, 2, 3, 3, 3, 3, 13, 1, 1, 1, 4, 4, 4,
-                4, 1, 1, 4, 3, 3, 60, 25, 4, 4, 1, 1, 1, 2, 4, 4,
-                4, 4, 1, 4, 3, 4, 18, 2, 4, 4, 1, 1, 1, 1, 2, 4,
-                2, 4, 1, 4, 3, 4, 2, 2, 2, 4, 1, 1, 1, 1, 1, 1,
-                4, 4, 1, 4, 3, 2, 2, 2, 4, 4, 4, 4, 1, 1, 1, 1,
-            };
+    const int level[] =
+    {
+        4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        4, 1, 1, 1, 1, 1, 1, 4, 4, 4, 4, 2, 4, 0, 0, 0,
+        1, 1, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3,
+        23, 1, 0, 4, 2, 3, 3, 3, 3, 13, 1, 1, 1, 4, 4, 4,
+        4, 1, 1, 4, 3, 3, 60, 25, 4, 4, 1, 1, 1, 2, 4, 4,
+        4, 4, 1, 4, 3, 4, 18, 2, 4, 4, 1, 1, 1, 1, 2, 4,
+        2, 4, 1, 4, 3, 4, 2, 2, 2, 4, 1, 1, 1, 1, 1, 1,
+        4, 4, 1, 4, 3, 2, 2, 2, 4, 4, 4, 4, 1, 1, 1, 1,
+    };
 
     
     // create the tilemap from the level definition
@@ -79,9 +87,11 @@ int main()
     MyTiles map;
 
     if (!map.load("rpg_textures.png", sf::Vector2u(gridLength, gridWidth), level, 16, 8))
+    {
         return -1;
+    }
 
-    jim.setPosition(xJim, yJim);
+    jones.setPosition(xJones, yJones);
 
     sf::RectangleShape Pause(sf::Vector2f(512, 256));
     Pause.setFillColor(sf::Color::Black);
@@ -105,27 +115,34 @@ int main()
             {
                 if (event.key.code == sf::Keyboard::Right)
                 {
-                    if (xJim < 480)
+                    if (xJones < 480)
                     {
-                        xJim = xJim + gridLength;
+                        xJones = xJones + gridLength;
                         usleep(9000);
                         stepcount++;
+                        xJones++;
+                        facing = 'R';
+                        xJones++;
+                        if(facing == 'L'){
+                        jones.turnAround();
+                        }
+                facing = 'R';
                     }
                 }
                 else if (event.key.code == sf::Keyboard::Left)
                 {
-                    if (xJim > 0)
+                    if (xJones > 0)
                     {
-                        xJim = xJim - gridLength;
+                        xJones = xJones - gridLength;
                         usleep(9000);
                         stepcount++;
                     }
                 }
                 else if (event.key.code == sf::Keyboard::Down)
                 {
-                    if (yJim < 224)
+                    if (yJones < 224)
                     {
-                        yJim = yJim + gridWidth;
+                        yJones = yJones + gridWidth;
                         usleep(9000);
 
                         stepcount++;
@@ -133,9 +150,9 @@ int main()
                 }
                 else if (event.key.code == sf::Keyboard::Up)
                 {
-                    if (yJim > 0)
+                    if (yJones > 0)
                     {
-                        yJim = yJim - gridWidth;
+                        yJones = yJones - gridWidth;
                         usleep(9000);
 
                         stepcount++;
@@ -147,16 +164,39 @@ int main()
         // Render the map and the game elements.
         window.clear();
         window.draw(map);
-
-        window.draw(jim);
+        jones.setPosition(xJones, yJones);
+        window.draw(jones);
         window.display();
+/*
+        if (event.type == sf::Event::KeyPressed)
+        {
+            if (event.key.code == sf::Keyboard::Right)
+            {
+                xJones++;
+                // if(facing == 'L'){
+                //     jones.turnAround();
+                // }
+                facing = 'R';
+            }
+            else if (event.key.code == sf::Keyboard::Left)
+            {
+                xJones--;
+                // if(facing == 'R'){
+                //     jones.turnAround();
+                // }
+                facing = 'L';
+            }
+             else if (event.key.code == sf::Keyboard::Down)
+            {
+                yJones++;
+            }
+             else if (event.key.code == sf::Keyboard::Up)
+            {
+                yJones--;
+            }
 
-        int place = map.findTile(xJim, yJim, gridLength, gridWidth);
-
-        jim.setPosition(xJim, yJim);
-
-        pit.Stop(pit, place, random, xJim, yJim, window, jim, trap2);
-        
+        int place = map.findTile(xJones, yJones, gridLength, gridWidth);
+        pit.Stop(pit, place, random, xJones, yJones, window, jones, trap2);
         //End of while loops
     }
 
@@ -165,4 +205,8 @@ int main()
     std::cout << "You ended on tile number " << place;
 
     return 0;
+    }
+}
+*/
+    }
 }

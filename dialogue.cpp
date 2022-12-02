@@ -22,7 +22,7 @@ Dialogue::Dialogue(std::string fontType,std::string message,int xPos, int yPos)
 }
 
 
-void Dialogue:: Stop(const Dialogue &obj,int place,int tile,int xPos,int yPos,sf::RenderWindow &window,sf::CircleShape &jim,int &trap)
+void Dialogue:: Stop(const Dialogue &obj,int place,int tile,int xPos,int yPos,sf::RenderWindow &window,Character &jim,int &trap)
 {
 //Needs to accept a integer to see if function has already ran. 
 
