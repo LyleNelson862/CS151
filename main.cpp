@@ -1,6 +1,7 @@
 #include "game.h"
 #include "character.h"
 #include "dialogue.h"
+#include <iostream>
 
 int main()
 {
@@ -18,14 +19,13 @@ int main()
     // Creating a shape that can be used
     // sf::CircleShape jim(16);
     // jim.setFillColor(sf::Color::Red);
-
     // sf::RenderWindow character(sf::VideoMode(800, 800), "SFML works!");
 
     sf::Texture textureTile;
     textureTile.loadFromFile("IndianaJonesCanva.png");
     Character jones;
     jones.setTexture(textureTile);
-    jones.setScale (0.07, 0.07);
+    jones.setScale (0.08, 0.08);
 
     // sf::Texture textureTile;
     // textureTile.loadFromFile("IndianaJonesCanva.png");
@@ -92,6 +92,11 @@ int main()
     }
 
     jones.setPosition(xJones, yJones);
+    /* The setOrigin function sets the origin's 'x' coordinate to 75% of the sprite's size, and it's y coorinate
+        to zero. This setup gets the character positioned at the center of the square, and staying in the same
+        spot when turning around. */
+    jones.setOrigin(sf::Vector2f(jones.getTexture()->getSize().x * 0.75, 0));
+    std::cout<<"Origin: "<<jones.getOrigin().x<<", "<< jones.getOrigin().y<<std::endl;
 
     sf::RectangleShape Pause(sf::Vector2f(512, 256));
     Pause.setFillColor(sf::Color::Black);
@@ -115,18 +120,15 @@ int main()
             {
                 if (event.key.code == sf::Keyboard::Right)
                 {
-                    if (xJones < 480)
+                    if (xJones < 512)
                     {
                         xJones = xJones + gridLength;
                         usleep(9000);
                         stepcount++;
-                        xJones++;
-                        facing = 'R';
-                        xJones++;
                         if(facing == 'L'){
-                        jones.turnAround();
+                            jones.scale(-1.f, 1.f);    // This is a built-in function that flips the image.
+                            facing = 'R';
                         }
-                facing = 'R';
                     }
                 }
                 else if (event.key.code == sf::Keyboard::Left)
@@ -136,6 +138,10 @@ int main()
                         xJones = xJones - gridLength;
                         usleep(9000);
                         stepcount++;
+                        if(facing == 'R'){
+                            jones.scale(-1.f, 1.f);  // This is a built-in function that flips the image.
+                            facing = 'L';
+                        }
                     }
                 }
                 else if (event.key.code == sf::Keyboard::Down)
@@ -167,46 +173,5 @@ int main()
         jones.setPosition(xJones, yJones);
         window.draw(jones);
         window.display();
-/*
-        if (event.type == sf::Event::KeyPressed)
-        {
-            if (event.key.code == sf::Keyboard::Right)
-            {
-                xJones++;
-                // if(facing == 'L'){
-                //     jones.turnAround();
-                // }
-                facing = 'R';
-            }
-            else if (event.key.code == sf::Keyboard::Left)
-            {
-                xJones--;
-                // if(facing == 'R'){
-                //     jones.turnAround();
-                // }
-                facing = 'L';
-            }
-             else if (event.key.code == sf::Keyboard::Down)
-            {
-                yJones++;
-            }
-             else if (event.key.code == sf::Keyboard::Up)
-            {
-                yJones--;
-            }
-
-        int place = map.findTile(xJones, yJones, gridLength, gridWidth);
-        pit.Stop(pit, place, random, xJones, yJones, window, jones, trap2);
-        //End of while loops
-    }
-
-    int place = map.findTile(xJim, yJim, gridLength, gridWidth);
-    std::cout << "You just took " << stepcount << " steps\n";
-    std::cout << "You ended on tile number " << place;
-
-    return 0;
-    }
-}
-*/
     }
 }
