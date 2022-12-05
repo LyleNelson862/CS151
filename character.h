@@ -20,9 +20,11 @@ private:
     sf::Sprite mCharacter;
     sf::Vector2f mPosition;
     sf::Texture mTexture;
-    sf::Texture mHeight;
-    sf::Texture mWidth;
-    sf::Vector2f mSize;
+    // unsigned int mHeight;
+    // unsigned int mWidth;
+    sf::Vector2u mSize;
 };
 
 #endif
+
+
