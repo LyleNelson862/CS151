@@ -11,7 +11,6 @@ int main()
     // textureTile.loadFromFile("IndianaJonesCanva.png");
     // sf::Sprite jones;
     // jones.setTexture(textureTile);
-    // prospector.setTextureRect(sf::IntRect(550, 150, 475, 1400));
     // jones.setScale (0.08, 0.08);
 
     // Placing a comment in here to check for pushing

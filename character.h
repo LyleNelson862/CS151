@@ -13,16 +13,17 @@ public:
     //Default constructor loading texture from file “IndianaJonesCanva.png”
     Character();
     // Character(sf::Vector2f position, sf::Vector2f size, sf::Texture texture);
-    ~Character();
+    // ~Character();
 
 
 private:
+    sf::Texture mTexture;
     sf::Sprite mCharacter;
     sf::Vector2f mPosition;
-    sf::Texture mTexture;
     // unsigned int mHeight;
     // unsigned int mWidth;
-    sf::Vector2u mSize;
+    sf::Vector2u mImageSize;
+    sf::Vector2u mGameSize;
 };
 
 #endif
