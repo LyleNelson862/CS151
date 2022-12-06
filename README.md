@@ -4,6 +4,8 @@ Final Project for Computer Science 151
  lyle's test
  //Lance's branch
  
+ 
+ 
  ## Game Description 
  This game is a gentle stroll in the park as you walk through a garden. 
  
@@ -14,11 +16,16 @@ Final Project for Computer Science 151
 the character. When you land on a special square, you will receive a textbox which will tell you what 
 happens next. That basically sums it up.
 
+
  
  ## How to play 
   Use the arrow keys to move along the grid, but watch out for the trap. 
   
   Press enter to click the button when it appears
+  
+  ## Other Notes:
+  
+  Tile system is used to get the positions of charcters along a gridsize. Map size is set at the start of the game using a default constructor. Pop up is its own class.
 
 # CS151
 Final Project for Computer Science 151
