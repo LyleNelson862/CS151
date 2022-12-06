@@ -53,8 +53,8 @@ bool MyTiles:: load(const std::string &tileset, sf::Vector2u tileSize, const int
     }
 
 
-    int MyTiles::findTile(int xPosition, int yPosition, int tileLength,int tileWidth) // Get character's position 
-    // based on the x value and y value, then returns the integer number of the tile you are on.
+    int MyTiles::findTile(int xPosition, int yPosition, int tileLength,int tileWidth) // Gets your position based on the x value and y value of your charcter 
+    // and returns the integer number of the tile that you are on. 
     {
         int X = (xPosition)/tileLength;
         int Y = yPosition/tileWidth;
