@@ -122,39 +122,41 @@ void Button::update(sf::Event &e, sf::RenderWindow &window)
             mBtnState = state::normal;
         }
     }
-    if (e.type == sf::Event::MouseButtonPressed)
+    if (e.type == sf::Event::KeyPressed)
     {
-        if (e.mouseButton.button == sf::Mouse::Left)
+        if (e.key.code == sf::Keyboard::Enter)
         {
-            if (mouseInButton)
-            {
+            //if (mouseInButton)
+            //{
                 mButton.setRotation(180);
                 mBtnState = state::clicked;
+                mText.setFillColor(mTextHover);
+
                 //std::cout<<"Button clicked";
-            }
-            else
-            {
-                mButton.setRotation(0);
-                mBtnState = state::normal;
-            }
+            //}
+            //else
+            //{
+               // mButton.setRotation(0);
+              //  mBtnState = state::normal;
+            //}
         }
     }
-    if (e.type == sf::Event::MouseButtonReleased)
+    if (e.type == sf::Event::KeyReleased)
     {
-        if (e.mouseButton.button == sf::Mouse::Left)
+        if (e.key.code == sf::Keyboard::Enter)
         {
-            if (mouseInButton)
-            {
-                mText.setFillColor(mTextHover);
-                mButton.setRotation(0);
-                mBtnState = state::hovered;
-            }
-            else
-            {
+            //if (mouseInButton)
+            //{
+               // mText.setFillColor(mTextHover);
+                //mButton.setRotation(0);
+                //mBtnState = state::hovered;
+            //}
+           // else
+           // {
                 mText.setFillColor(mTextNormal);
                 mButton.setRotation(0);
                 mBtnState = state::normal;
-            }
+            //}
         }
     }
 }
