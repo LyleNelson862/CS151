@@ -1,10 +1,5 @@
 # A Walk in the Park
 Final Project for Computer Science 151
- test
- lyle's test
- //Lance's branch
- 
- 
  
  ## Game Description  
  Take a gentle stroll in the park as you walk through this game.
