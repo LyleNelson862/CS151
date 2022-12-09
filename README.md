@@ -41,11 +41,12 @@ $ g++ -std=C++11 *.cpp -o final -lsfml-graphics -lsfml-window -lsfml-system
 % run the game
 $ ./final
 
-<!-- SetUp on MacOS:
+ SetUp on MacOS with M1 chip
 <!-- open the terminal -->
-<!-- update the Ubuntu package lists -->
-<!-- % install the GNU compiler tools (gcc/g++) and the GDB debugger -->
-<!-- now install git -->
+<!-- install gcc on mac -->
+brew install gcc@9
+<!-- % install git-->
+brew install git
 <!-- % install SFML libraries -->
 $ sudo install homebrew
 % <!-- clone the repository -->
@@ -56,4 +57,3 @@ $ cd final
 $ g++ *.cpp -o final -lsfml-graphics -lsfml-window -lsfml-system
 <!-- % run the game -->
 $ ./final
-
