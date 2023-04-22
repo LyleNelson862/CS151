@@ -15,7 +15,9 @@ Character::Character()
     //sf::Vector2u imageSize = mTexture.getSize(); // I think I need to get the image size for later
     mCharacter.setTextureRect(sf::IntRect(290, 40, 230, 374));
 
-    mPosition = {0, 0};
+    // mPosition = {0, 0};
+    mPosition.x = 0;
+    mPosition.y = 0;
     mCharacter.setPosition(mPosition.x, mPosition.y); // Sets the postion at 0,0 in the default constructors
     mCharacter.setScale(0.09, 0.09);                  // Setting scale at this for now
 
@@ -44,7 +46,6 @@ Character::Character()
 
 void Character::moveJones(sf::RenderWindow &window, sf::Event &event, int gridSize, int &stepcount)
 {
-
     if (event.type == sf::Event::KeyPressed)
     {
         if (event.key.code == sf::Keyboard::Right)

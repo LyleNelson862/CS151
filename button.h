@@ -29,7 +29,7 @@ public:
     void setColorTextNormal(sf::Color textNormalColor){mTextNormal = textNormalColor;}; //This was already decalred in th header
     void setColorTextHover(sf::Color textHoverColor){mTextHover = textHoverColor;};
 
-    sf::Vector2f getPosition(){return mPosition;};
+    // sf::Vector2f getPosition(){return mPosition;};
     sf::Vector2f getDimensions(){return sf::Vector2f(mButton.getGlobalBounds().width, mButton.getGlobalBounds().height);};
     sf::Uint32 getState(){return mBtnState;};
 
@@ -43,6 +43,7 @@ private:
     sf::Texture mTexture;
     sf::Color mButtonColor;
     sf::Vector2f mPosition;
+    sf::Vector2f mSize;
     sf::Uint32 mBtnState;
     
     //text
@@ -52,6 +53,5 @@ private:
     sf::Color mTextHover;
 
 };
-
 
 #endif

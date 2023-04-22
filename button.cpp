@@ -19,7 +19,8 @@ Button::Button()
     // change origing to the center of the image (maks rotation easy)
     mButton.setOrigin(imageSize.x / 2, imageSize.y / 2);
     // set position
-    mPosition = {300, 100};
+    mPosition.x = 300;
+    mPosition.y = 100;
     mBtnState = normal;
 
     mButton.setPosition(mPosition.x, mPosition.y);
@@ -54,7 +55,6 @@ Button::Button()
 
 Button::Button(std::string s, sf::Vector2f position, sf::Vector2f size, sf::Color color)
 {
-
     if (!mTexture.loadFromFile("button.png"))
     {
         std::cout << "Error opening file\n";
@@ -169,9 +169,9 @@ void Button::draw(sf::RenderTarget &target, sf::RenderStates states) const
 void Button::setPosition(sf::Vector2f position)
 {
     mButton.setPosition(position);
-        mText.setPosition(position.x,position.y -mButton.getGlobalBounds().height/20);
-
+    mText.setPosition(position.x,position.y - mButton.getGlobalBounds().height/20);
 }
+
 // change button size to size (what else needs to be changed?)
 void Button::setSize(sf::Vector2f size)
 {
@@ -181,7 +181,6 @@ void Button::setSize(sf::Vector2f size)
     unsigned int fontSize = mButton.getGlobalBounds().height / 2;
     mText.setCharacterSize(fontSize);
     mText.setOrigin(mText.getGlobalBounds().width / 2, mText.getGlobalBounds().height / 2);
-
 }
 
 // change button color to color (what else needs to be changed?)

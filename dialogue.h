@@ -22,8 +22,6 @@ public:
     void StopJones(const Dialogue &obj, int place, int tile, int xPos, int yPos, sf::RenderWindow &window, Character &jones, int &trap, sf::Event &event);
 
     void setMessage(std::string m);
-    
-    
 
 private:
     std::string message;
